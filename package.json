@@ -44,5 +44,8 @@
 		"prod": "npm run production",
 		"zip": "node node_scripts/zip.js itrade",
 		"bundle": "run-s production zip"
+	},
+	"dependencies": {
+		"alpinejs": "^3.14.9"
 	}
 }

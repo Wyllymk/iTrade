@@ -6,34 +6,36 @@
  *
  * @package iTrade
  */
-
+// Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <header id="masthead">
 
-	<div>
-		<?php
+    <div>
+        <?php
 		if ( is_front_page() ) :
 			?>
-			<h1><?php bloginfo( 'name' ); ?></h1>
-			<?php
+        <h1><?php bloginfo( 'name' ); ?></h1>
+        <?php
 		else :
 			?>
-			<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
+        <p><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+        <?php
 		endif;
 
 		$itrade_description = get_bloginfo( 'description', 'display' );
 		if ( $itrade_description || is_customize_preview() ) :
 			?>
-			<p><?php echo $itrade_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-		<?php endif; ?>
-	</div>
+        <p><?php echo $itrade_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+        <?php endif; ?>
+    </div>
 
-	<nav id="site-navigation" aria-label="<?php esc_attr_e( 'Main Navigation', 'itrade' ); ?>">
-		<button aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'itrade' ); ?></button>
+    <nav id="site-navigation" aria-label="<?php esc_attr_e( 'Main Navigation', 'itrade' ); ?>">
+        <button aria-controls="primary-menu"
+            aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'itrade' ); ?></button>
 
-		<?php
+        <?php
 		wp_nav_menu(
 			array(
 				'theme_location' => 'menu-1',
@@ -42,6 +44,6 @@
 			)
 		);
 		?>
-	</nav><!-- #site-navigation -->
+    </nav><!-- #site-navigation -->
 
 </header><!-- #masthead -->

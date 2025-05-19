@@ -6,20 +6,21 @@
  *
  * @package iTrade
  */
-
+// Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <footer id="colophon">
 
-	<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-		<aside role="complementary" aria-label="<?php esc_attr_e( 'Footer', 'itrade' ); ?>">
-			<?php dynamic_sidebar( 'sidebar-1' ); ?>
-		</aside>
-	<?php endif; ?>
+    <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+    <aside role="complementary" aria-label="<?php esc_attr_e( 'Footer', 'itrade' ); ?>">
+        <?php dynamic_sidebar( 'sidebar-1' ); ?>
+    </aside>
+    <?php endif; ?>
 
-	<?php if ( has_nav_menu( 'menu-2' ) ) : ?>
-		<nav aria-label="<?php esc_attr_e( 'Footer Menu', 'itrade' ); ?>">
-			<?php
+    <?php if ( has_nav_menu( 'menu-2' ) ) : ?>
+    <nav aria-label="<?php esc_attr_e( 'Footer Menu', 'itrade' ); ?>">
+        <?php
 			wp_nav_menu(
 				array(
 					'theme_location' => 'menu-2',
@@ -28,16 +29,16 @@
 				)
 			);
 			?>
-		</nav>
-	<?php endif; ?>
+    </nav>
+    <?php endif; ?>
 
-	<div>
-		<?php
+    <div>
+        <?php
 		$itrade_blog_info = get_bloginfo( 'name' );
 		if ( ! empty( $itrade_blog_info ) ) :
 			?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>,
-			<?php
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>,
+        <?php
 		endif;
 
 		/* translators: 1: WordPress link, 2: WordPress. */
@@ -47,6 +48,6 @@
 			'WordPress'
 		);
 		?>
-	</div>
+    </div>
 
 </footer><!-- #colophon -->

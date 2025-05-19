@@ -47,4 +47,21 @@
 	/**
 	 * Add your theme below:
 	 */
+	--color-itrade-navy-blue: #141629;
+	--color-itrade-blue: #003087;
+	--color-itrade-light-blue: #0070e0;
+
+	/*Images*/
+	--image-hero-banner: url("../assets/img/hero-bg.png");
+
+	/*Shadows*/
+	--drop-shadow-white-glow: 0 0 5px rgba(255, 255, 255, 1);
+	--drop-shadow-aeon-yellow: 0 0 5px rgba(255, 210, 33, 1);
+
+	/*Gradients*/
+	--my-gradient: linear-gradient(
+		55deg,
+		rgba(14, 16, 29, 0) 40.49%,
+		#121525 99.37%
+	);
 }

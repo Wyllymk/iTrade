@@ -8,16 +8,16 @@
  *
  * @package iTrade
  */
-
+// Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 ?>
 
-	</div><!-- #content -->
-
-	<?php get_template_part( 'template-parts/layout/footer', 'content' ); ?>
+</div><!-- #content -->
 
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
 </body>
+
 </html>
