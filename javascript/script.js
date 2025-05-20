@@ -23,33 +23,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	const applyCouponButton = document.getElementById('apply_coupon_button');
 	const customCouponCode = document.getElementById('custom_coupon_code');
 	const couponCode = document.getElementById('coupon_code');
-	const checkoutCoupon = document.querySelector('.checkout_coupon');
-	const nextButton = document.getElementById('next_button');
-	const prevButton = document.getElementById('prev_button');
 
 	// Clear notices function
 	function clearCouponNotices() {
-		couponDisplay.innerHTML = '';
+		if (couponDisplay) couponDisplay.innerHTML = '';
 	}
 
-	// Check initial state
-	function checkCouponState() {
-		const hasCoupons =
-			document.querySelectorAll('.cart-discount').length > 0;
-		const couponApplied =
-			sessionStorage.getItem('couponApplied') === 'true';
-
-		if (hasCoupons || couponApplied) {
-			couponDiv.style.display = 'none';
-			couponAccepted.style.display = 'flex';
-		} else {
-			couponDiv.style.display = 'flex';
-			couponAccepted.style.display = 'none';
+	// Reset apply button to default state
+	function resetApplyButton() {
+		if (applyCouponButton) {
+			applyCouponButton.disabled = false;
+			applyCouponButton.textContent = 'Apply Coupon';
 		}
 	}
-
-	// Run initial check
-	checkCouponState();
 
 	// 1. Handle custom coupon form submission
 	if (applyCouponButton) {
@@ -79,15 +65,38 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 
 		clearCouponNotices();
-		couponCode.value = couponCodeValue;
 
-		if (checkoutCoupon) {
-			checkoutCoupon.dispatchEvent(new Event('submit'));
-		}
+		// Set the value in the WooCommerce coupon field
+		if (couponCode) couponCode.value = couponCodeValue;
 
-		if (applyCouponButton) {
-			applyCouponButton.disabled = true;
-			applyCouponButton.textContent = 'Applying...';
+		// Find the actual WooCommerce coupon form
+		var wcCouponForm = document.querySelector('form.checkout_coupon');
+
+		if (wcCouponForm) {
+			// Update button state
+			if (applyCouponButton) {
+				applyCouponButton.disabled = true;
+				applyCouponButton.textContent = 'Applying...';
+			}
+
+			// Create a new submit event
+			var submitEvent = new Event('submit', {
+				bubbles: true,
+				cancelable: true,
+			});
+
+			// Dispatch the event on the WooCommerce form
+			wcCouponForm.dispatchEvent(submitEvent);
+
+			// If the form wasn't prevented from submitting, submit it
+			if (!submitEvent.defaultPrevented) {
+				wcCouponForm.submit();
+			}
+			// Set timeout to reset button after 3 seconds if no response
+			setTimeout(resetApplyButton, 3000);
+		} else {
+			displayInCustomDiv('Could not find coupon form', 'error');
+			resetApplyButton();
 		}
 	}
 
@@ -120,6 +129,8 @@ document.addEventListener('DOMContentLoaded', function () {
 						'<div class="woocommerce-error" role="alert">' +
 						msg.textContent +
 						'</div>';
+					// Reset button when we get a response
+					resetApplyButton();
 				} else {
 					couponDisplay.innerHTML = msg.outerHTML;
 				}
@@ -136,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function handleCouponEvents() {
 		interceptWooCommerceMessages();
+		resetApplyButton();
 
 		if (applyCouponButton) {
 			applyCouponButton.disabled = false;
@@ -155,14 +167,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	// 7. Clear notices when navigating steps
-	if (nextButton) nextButton.addEventListener('click', clearCouponNotices);
-	if (prevButton) prevButton.addEventListener('click', clearCouponNotices);
-
-	// 8. Message check interval
+	// 7. Message check interval
 	setInterval(interceptWooCommerceMessages, 500);
 
-	// 9. MutationObserver for dynamic notices
+	// 8. MutationObserver for dynamic notices
 	const observer = new MutationObserver(function (mutations) {
 		mutations.forEach(function (mutation) {
 			mutation.addedNodes.forEach(function (node) {

@@ -248,7 +248,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
             </div>
         </div>
         <div class="flex items-center justify-center">
-            <a href="#" class="whitespace-nowrap !no-underline !m-0 !text-white hover:text-white/50 transition-colors">
+            <a href="mailto:itradesupport@gmail.com"
+                class="whitespace-nowrap !no-underline !m-0 !text-white hover:text-white/50 transition-colors">
                 <?php esc_html_e( 'itradesupport@gmail.com', 'itrade' ); ?>
             </a>
         </div>
