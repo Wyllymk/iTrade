@@ -238,7 +238,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
             </a>
             <div class="flex items-center justify-center space-x-4">
                 <a href="#" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Whatsapp.png" alt="whatsapp"
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/WhatsApp.png" alt="whatsapp"
                         class="!my-0 size-10">
                 </a>
                 <a href="#" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">

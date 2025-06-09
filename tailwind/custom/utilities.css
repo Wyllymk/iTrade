@@ -46,11 +46,19 @@ form.checkout.woocommerce-checkout {
 	color: #67c23a;
 }
 
+#coupon_display .woocommerce-message::before {
+	color: #67c23a;
+}
+
 #coupon_display .woocommerce-error {
 	background:
 		linear-gradient(55deg, rgba(14, 16, 29, 0) 40.49%, #121525 99.37%),
 		#0b0c16;
 	border-color: #f56c6c;
+	color: #f56c6c;
+}
+
+#coupon_display .woocommerce-error::before {
 	color: #f56c6c;
 }
 
