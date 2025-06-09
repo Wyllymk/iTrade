@@ -70,7 +70,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
     </div>
 </div>
 <!-- Form Section -->
-<div class="mx-auto mt-5 max-w-sm md:max-w-6xl">
+<div class="mx-auto mt-5 w-full md:max-w-6xl">
     <!-- Header Section -->
     <div class="items-center justify-start text-white md:flex">
         <!-- Go Back Section -->
@@ -226,7 +226,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 </div>
 
-<div class="mt-5 flex md:hidden items-center justify-center w-full bg-[rgba(0,9,18,0.85)] backdrop-blur-[12.5px] p-3">
+<div class="mt-5 flex md:hidden items-center justify-center w-full bg-[rgba(0,9,18,0.85)] backdrop-blur-[12.5px]">
     <div class="flex flex-col items-center justify-between text-white w-full p-3 space-y-4">
         <div class="flex items-start justify-between w-full space-x-4">
             <a href="<?php echo esc_url( site_url( '/' ) ); ?>" class="flex items-center space-x-4 !no-underline">
