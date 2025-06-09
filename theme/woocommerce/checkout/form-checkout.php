@@ -165,7 +165,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 <div class="mt-5 hidden md:flex items-center justify-center w-full bg-[rgba(0,9,18,0.85)] backdrop-blur-[12.5px] p-3">
     <div class="flex max-w-sm items-center justify-between text-white md:w-full md:max-w-6xl p-3">
         <div class="flex items-start justify-center space-y-4 flex-col">
-            <a href="https://itrader.com" class="flex items-center space-x-4 !no-underline">
+            <a href="<?php echo esc_url( site_url( '/' ) ); ?>" class="flex items-center space-x-4 !no-underline">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="logo"
                     class="!my-0 size-10">
                 <span class="text-white !no-underline text-2xl font-bold">
@@ -207,13 +207,13 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
         <div class="flex flex-col items-center justify-center space-y-4">
             <!-- Menu Items -->
             <a href="#"
-                class="whitespace-nowrap !no-underline px-4 py-1 !m-0 !text-white hover:text-white/50 transition-colors">
+                class="whitespace-nowrap !no-underline px-4 py-1 !m-0 !text-white hover:!text-white/50 transition-colors">
                 <?php esc_html_e( 'itradesupport@gmail.com', 'itrade' ); ?>
             </a>
 
             <div class="flex items-center justify-center space-x-4">
                 <a href="#" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Whatsapp.png" alt="whatsapp"
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/whatsapp.png" alt="whatsapp"
                         class="!my-0 size-10">
                 </a>
                 <a href="#" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
@@ -238,7 +238,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
             </a>
             <div class="flex items-center justify-center space-x-4">
                 <a href="#" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/WhatsApp.png" alt="whatsapp"
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/whatsapp.png" alt="whatsapp"
                         class="!my-0 size-10">
                 </a>
                 <a href="#" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
