@@ -8,6 +8,38 @@
 // Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
 
+// Run the function on theme activation.
+add_action( 'after_switch_theme', 'itrade_create_home_page' );
+function itrade_create_home_page() {
+	// Check if the home page already exists.
+	$home_page = get_page_by_title( 'Home' );
+
+	// If the page doesn't exist, create it.
+	if ( ! $home_page ) {
+		$home_page_id = wp_insert_post(
+			array(
+				'post_title'   => 'Home',
+				'post_content' => '',
+				'post_status'  => 'publish',
+				'post_type'    => 'page',
+			)
+		);
+
+		// Set the newly created page as the front page.
+		if ( ! is_wp_error( $home_page_id ) ) {
+			update_option( 'page_on_front', $home_page_id ); // Set as the front page.
+			update_option( 'show_on_front', 'page' ); // Ensure front page displays a static page.
+		}
+	}
+
+    // Set permalink structure to "Post name"
+    if ( get_option( 'permalink_structure' ) !== '/%postname%/' ) {
+        global $wp_rewrite;
+        $wp_rewrite->set_permalink_structure( '/%postname%/' );
+        $wp_rewrite->flush_rules();
+    }
+}
+
 
 add_filter( 'woocommerce_checkout_fields', 'itrade_customize_checkout_fields' );
 function itrade_customize_checkout_fields( $fields ) {
@@ -67,7 +99,7 @@ function check_login_and_redirect() {
 		);
 
 		if ( in_array( $current_page, $restricted_pages ) ) {
-			wp_redirect( 'https://itrade.com/' );
+			wp_redirect( site_url( '/' ) );
 			exit;
 		}
 	}

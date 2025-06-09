@@ -79,6 +79,15 @@ body.woocommerce-checkout {
 	max-width: inherit;
 }
 
+body.woocommerce-checkout a {
+	color: #04c7b5;
+	text-decoration: none;
+}
+body.woocommerce-checkout a:hover {
+	color: #1d807c;
+	text-decoration: none;
+}
+
 form.checkout.woocommerce-checkout {
 	border-radius: 8px;
 	display: flex;

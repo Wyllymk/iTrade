@@ -33,7 +33,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 <div
     class="mx-auto flex w-full items-center justify-center text-white bg-[rgba(0,9,18,0.85)] backdrop-blur-[12.5px] p-3 rounded-lg">
     <div class="flex w-full max-w-sm items-center justify-between text-white md:w-11/12 md:max-w-6xl">
-        <a href="https://itrader.com" class="flex items-center space-x-4 !no-underline">
+        <a href="<?php echo esc_url( site_url( '/' ) ); ?>" class="flex items-center space-x-4 !no-underline">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="logo" class="!my-0 size-10">
             <span class="text-white !no-underline text-2xl font-bold">
                 <?php esc_html_e( 'iTrade', 'itrade' ); ?>
@@ -56,13 +56,13 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
             </a>
 
             <!-- Styled Button -->
-            <button
-                class="w-full rounded-lg border border-[#3980F5] bg-[#010706] text-white py-1 px-6 hover:bg-[#3980F5]/10 transition-colors">
+            <button href="#"
+                class="cursor-pointer w-full rounded-lg border border-[#3980F5] bg-[#010706] text-white py-1 px-6 hover:bg-[#3980F5]/10 transition-colors">
                 <?php esc_html_e( 'Login', 'itrade' ); ?>
             </button>
         </div>
         <div class="flex md:hidden items-center justify-center space-x-4">
-            <button
+            <button href="#"
                 class="whitespace-nowrap w-full rounded-lg border border-[#3980F5] bg-[#010706] text-white py-1 px-6 hover:bg-[#3980F5]/10 transition-colors">
                 <?php esc_html_e( 'Начать сейчас', 'itrade' ); ?>
             </button>
@@ -74,10 +74,10 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
     <!-- Header Section -->
     <div class="items-center justify-start text-white md:flex">
         <!-- Go Back Section -->
-        <a id="prev_button" class="flex items-center no-underline" href="javascript:void(0)">
+        <a class="flex items-center no-underline" href="#">
             <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/img/chevron-left.png"
                 alt="back" class="!my-0 size-5 sm:mr-2">
-            <span class="text-white no-underline hover:text-gray-800">
+            <span class="text-white no-underline hover:text-white/75 transition-colors">
                 <?php esc_html_e( 'Go Back', 'itrade' ); ?>
             </span>
         </a>
@@ -229,7 +229,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 <div class="mt-5 flex md:hidden items-center justify-center w-full bg-[rgba(0,9,18,0.85)] backdrop-blur-[12.5px] p-3">
     <div class="flex flex-col items-center justify-between text-white w-full p-3 space-y-4">
         <div class="flex items-start justify-between w-full space-x-4">
-            <a href="https://itrader.com" class="flex items-center space-x-4 !no-underline">
+            <a href="<?php echo esc_url( site_url( '/' ) ); ?>" class="flex items-center space-x-4 !no-underline">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="logo"
                     class="!my-0 size-10">
                 <span class="text-white !no-underline text-2xl font-bold">
@@ -249,7 +249,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
         </div>
         <div class="flex items-center justify-center">
             <a href="mailto:itradesupport@gmail.com"
-                class="whitespace-nowrap !no-underline !m-0 !text-white hover:text-white/50 transition-colors">
+                class="whitespace-nowrap !no-underline !m-0 !text-white hover:!text-white/50 transition-colors">
                 <?php esc_html_e( 'itradesupport@gmail.com', 'itrade' ); ?>
             </a>
         </div>
