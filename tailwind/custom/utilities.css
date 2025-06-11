@@ -326,3 +326,22 @@ form.checkout.woocommerce-checkout .second-column {
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
+/* CONFIRMO */
+.wc_payment_method.payment_method_confirmo {
+	display: flex;
+	align-items: center;
+	/* gap: 10px; Adjust spacing between input and label as needed */
+}
+
+.wc_payment_method.payment_method_confirmo .input-radio {
+	margin: 0; /* Remove any default margin from the input */
+}
+
+.wc_payment_method.payment_method_confirmo label {
+	display: flex;
+	align-items: center;
+	gap: 5px; /* Adjust spacing between text and image in the label */
+}
+.wc_payment_method.payment_method_confirmo label img.confirmo-logo {
+	width: 25%;
+}
