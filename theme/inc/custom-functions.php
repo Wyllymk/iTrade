@@ -62,9 +62,8 @@ function check_login_and_redirect() {
 		$restricted_pages = array(
 			'shop',
 			'cart',			
-			'product',
-			'home',
-		);
+			'product'
+ 		);
 
 		if ( in_array( $current_page, $restricted_pages ) ) {
 			$external_url = 'https://itrade.money/';
