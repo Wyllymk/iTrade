@@ -80,9 +80,7 @@ body {
         </div>
 
         <script type="text/javascript">
-        setTimeout(function() {
-            window.location.replace("https://itrade.money/");
-        }, 500);
+        window.location.replace("https://itrade.money/");
         </script>
         <?php else : ?>
         <div class="loader-container">
