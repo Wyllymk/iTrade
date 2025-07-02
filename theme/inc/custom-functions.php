@@ -63,10 +63,14 @@ function check_login_and_redirect() {
 			'shop',
 			'cart',			
 			'product',
+			'home',
 		);
 
 		if ( in_array( $current_page, $restricted_pages ) ) {
-			wp_redirect( site_url( '/' ) );
+			$external_url = 'https://itrade.money/';
+
+			// Perform the redirect
+			wp_redirect( $external_url );
 			exit;
 		}
 	}
@@ -108,7 +112,7 @@ add_action(
 	function () {
 		if ( is_singular( 'product' ) ) {
 			// The external URL to redirect to
-			$external_url = 'https://itrade.com/';
+			$external_url = 'https://itrade.money/';
 
 			// Perform the redirect
 			wp_redirect( $external_url );
