@@ -69,7 +69,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                 </button>
             </div>
             <div
-                class="ms-2 md:ms-4 flex rounded-lg border border-white/8 bg-[#0B0C16] bg-[linear-gradient(55deg,rgba(14,16,29,0)_40.49%,#121525_99.37%)] py-3.5 px-0.5">
+                class="ms-2 md:ms-4 flex rounded-lg border border-white/8 bg-[#0B0C16] bg-[linear-gradient(55deg,rgba(14,16,29,0)_40.49%,#121525_99.37%)] py-0.5 md:py-3.5 px-0.5">
                 <?php echo do_shortcode( '[gtranslate]' ); ?>
             </div>
         </div>
@@ -80,7 +80,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
     <!-- Header Section -->
     <div class="items-center justify-start text-white md:flex">
         <!-- Go Back Section -->
-        <a class="flex items-center no-underline" href="#">
+        <a class="flex items-center no-underline" href="https://itrade.money/">
             <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/img/chevron-left.png"
                 alt="back" class="!my-0 size-5 sm:mr-2">
             <span class="text-white no-underline transition-colors hover:text-white/75">
