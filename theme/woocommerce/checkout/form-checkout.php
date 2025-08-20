@@ -119,7 +119,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                         <input type="text" id="custom_coupon_code" name="coupon_code" placeholder="Coupon Code"
                             class="w-full rounded-lg border border-[#333546] bg-[#141629] text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#04C7B5] placeholder-gray-400" />
                         <button type="button" id="apply_coupon_button"
-                            class="w-full rounded-lg bg-gradient-to-r from-[#04C7B5] to-[#3980F5] shadow-[0_3px_45px_0_rgba(13,187,192,0.65)] text-white px-5 py-3 border-none cursor-pointer transition-all hover:opacity-90 hover:-translate-y-0.5">
+                            class="w-full rounded-lg bg-gradient-to-r from-[#04C7B5] to-[#3980F5] shadow-[0_3px_45px_0_rgba(13,187,192,0.65)] text-white px-5 py-3 border-none cursor-pointer transition-all hover:opacity-90 hover:bg-gradient-to-r hover:from-[#3980F5] hover:to-[#04C7B5] hover:-translate-y-0.5">
                             <?php esc_html_e( 'Apply Coupon Code', 'itrade' ); ?>
                         </button>
                     </div>
