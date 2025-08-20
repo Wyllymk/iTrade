@@ -127,3 +127,9 @@ function change_zero_dollar_order_status( $status, $order_id, $order ) {
 	}
 	return $status;
 }
+
+// Remove payment from the default hook
+remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+
+// Add payment section after order review
+add_action( 'woocommerce_checkout_after_order_review', 'woocommerce_checkout_payment', 20 );

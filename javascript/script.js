@@ -184,4 +184,127 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 	observer.observe(document.body, { childList: true, subtree: true });
+
+	// ------------------------------
+	// 7. GTranslate Dropdown
+	// ------------------------------
+	const wrappers = document.querySelectorAll('.gtranslate_wrapper');
+	wrappers.forEach((wrapper) => {
+		const links = Array.from(wrapper.querySelectorAll('a.glink'));
+		if (!links.length) return;
+
+		// Map of languages → original links
+		const langMap = new Map();
+		links.forEach((link) => {
+			const lang = link.dataset.gtLang;
+			langMap.set(lang, link);
+			link.style.display = 'none'; // hide originals
+		});
+
+		// Detect current language
+		let currentLang =
+			wrapper.querySelector('.gt-current-lang')?.dataset.gtLang ||
+			links[0].dataset.gtLang;
+
+		// Current display element
+		const currentDiv = document.createElement('div');
+		currentDiv.classList.add('current-language');
+		wrapper.appendChild(currentDiv);
+
+		// Update current language display
+		const updateCurrent = (lang) => {
+			currentDiv.innerHTML = '';
+			const origLink = langMap.get(lang);
+			if (!origLink) return;
+			const img = origLink.querySelector('img')?.cloneNode(true);
+			const span = origLink.querySelector('span')?.cloneNode(true);
+			const downIcon = document.createElement('span');
+			downIcon.classList.add('down-icon');
+			downIcon.innerHTML = '&#9660;';
+			if (img) currentDiv.appendChild(img);
+			if (span) currentDiv.appendChild(span);
+			currentDiv.appendChild(downIcon);
+		};
+		updateCurrent(currentLang);
+
+		// Dropdown container
+		const dropdown = document.createElement('div');
+		dropdown.classList.add('language-dropdown');
+		wrapper.appendChild(dropdown);
+
+		// Update dropdown options
+		const updateDropdown = (currLang) => {
+			dropdown.innerHTML = '';
+			langMap.forEach((origLink, lang) => {
+				if (lang !== currLang) {
+					const itemDiv = document.createElement('div');
+					itemDiv.classList.add('language-item');
+					const img = origLink.querySelector('img')?.cloneNode(true);
+					const span = origLink
+						.querySelector('span')
+						?.cloneNode(true);
+					if (img) itemDiv.appendChild(img);
+					if (span) itemDiv.appendChild(span);
+
+					itemDiv.addEventListener('click', () => {
+						// Simulate click on original link
+						origLink.dispatchEvent(
+							new MouseEvent('click', {
+								bubbles: true,
+								cancelable: true,
+								view: window,
+							})
+						);
+						// Update UI
+						currentLang = lang;
+						updateCurrent(lang);
+						updateDropdown(lang);
+						toggleDropdown(false);
+					});
+
+					dropdown.appendChild(itemDiv);
+				}
+			});
+		};
+		updateDropdown(currentLang);
+
+		// Hide Google translate default element
+		const googleEl = wrapper.querySelector('#google_translate_element2');
+		if (googleEl) googleEl.style.display = 'none';
+
+		// Dropdown state
+		let isOpen = false;
+		const toggleDropdown = (show) => {
+			isOpen = show;
+			dropdown.style.display = isOpen ? 'flex' : 'none';
+		};
+
+		// Toggle on click
+		currentDiv.addEventListener('click', () => {
+			toggleDropdown(!isOpen);
+		});
+
+		// Close on outside click
+		document.addEventListener('click', (e) => {
+			if (!wrapper.contains(e.target) && isOpen) {
+				toggleDropdown(false);
+			}
+		});
+
+		// Hover support for desktop
+		const onEnter = () => toggleDropdown(true);
+		const onLeave = () => toggleDropdown(false);
+
+		const handleHover = () => {
+			if (window.innerWidth > 768) {
+				wrapper.addEventListener('mouseenter', onEnter);
+				wrapper.addEventListener('mouseleave', onLeave);
+			} else {
+				wrapper.removeEventListener('mouseenter', onEnter);
+				wrapper.removeEventListener('mouseleave', onLeave);
+			}
+		};
+		handleHover();
+		window.addEventListener('resize', handleHover);
+	});
 });

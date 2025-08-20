@@ -32,52 +32,58 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 <!-- Header Section -->
 <div
     class="mx-auto flex w-full items-center justify-center text-white bg-[rgba(0,9,18,0.85)] backdrop-blur-[12.5px] p-3 rounded-lg">
-    <div class="flex w-full max-w-sm items-center justify-between text-white md:w-11/12 md:max-w-6xl">
-        <a href="<?php echo esc_url( site_url( '/' ) ); ?>" class="flex items-center space-x-4 !no-underline">
+    <div class="container flex items-center justify-between w-full text-white md:w-11/12">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center space-x-4 !no-underline">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="logo" class="!my-0 size-10">
             <span class="text-white !no-underline text-2xl font-bold">
                 <?php esc_html_e( 'iTrade', 'itrade' ); ?>
             </span>
         </a>
-        <div
-            class="hidden md:flex items-center justify-center space-x-4 rounded-lg border border-white/8 bg-[#0B0C16] bg-[linear-gradient(55deg,rgba(14,16,29,0)_40.49%,#121525_99.37%)] p-3 space-y-4">
-            <!-- Menu Items -->
-            <a href="#"
-                class="whitespace-nowrap !no-underline px-4 py-1 !m-0 !text-white hover:bg-white/10 rounded-lg transition-colors">
-                <?php esc_html_e( 'Как это работает', 'itrade' ); ?>
-            </a>
-            <a href="#"
-                class="whitespace-nowrap !no-underline px-4 py-1 !m-0 !text-white hover:bg-white/10 rounded-lg transition-colors">
-                <?php esc_html_e( 'Условия', 'itrade' ); ?>
-            </a>
-            <a href="#"
-                class="whitespace-nowrap !no-underline px-4 py-1 !m-0 !text-white hover:bg-white/10 rounded-lg transition-colors">
-                <?php esc_html_e( 'Поддержка', 'itrade' ); ?>
-            </a>
+        <div class="flex w-full items-center justify-end text-white">
+            <div
+                class="hidden md:flex items-center justify-center space-x-4 rounded-lg border border-white/8 bg-[#0B0C16] bg-[linear-gradient(55deg,rgba(14,16,29,0)_40.49%,#121525_99.37%)] p-3 space-y-4">
+                <!-- Menu Items -->
+                <a href="https://itrade.money/#how-it-works"
+                    class="whitespace-nowrap !no-underline px-4 py-1 !m-0 !text-white hover:bg-white/10 rounded-lg transition-colors">
+                    <?php esc_html_e( 'How it works ', 'itrade' ); ?>
+                </a>
+                <a href="https://itrade.money/#terms"
+                    class="whitespace-nowrap !no-underline px-4 py-1 !m-0 !text-white hover:bg-white/10 rounded-lg transition-colors">
+                    <?php esc_html_e( 'Terms', 'itrade' ); ?>
+                </a>
+                <a href="https://itrade.money/#support"
+                    class="whitespace-nowrap !no-underline px-4 py-1 !m-0 !text-white hover:bg-white/10 rounded-lg transition-colors">
+                    <?php esc_html_e( 'Support', 'itrade' ); ?>
+                </a>
 
-            <!-- Styled Button -->
-            <button href="#"
-                class="cursor-pointer w-full rounded-lg border border-[#3980F5] bg-[#010706] text-white py-1 px-6 hover:bg-[#3980F5]/10 transition-colors">
-                <?php esc_html_e( 'Login', 'itrade' ); ?>
-            </button>
-        </div>
-        <div class="flex md:hidden items-center justify-center space-x-4">
-            <button href="#"
-                class="whitespace-nowrap w-full rounded-lg border border-[#3980F5] bg-[#010706] text-white py-1 px-6 hover:bg-[#3980F5]/10 transition-colors">
-                <?php esc_html_e( 'Начать сейчас', 'itrade' ); ?>
-            </button>
+                <!-- Styled Button -->
+                <button href="https://itrade.money/#form"
+                    class="cursor-pointer w-full rounded-lg border border-[#3980F5] bg-[#010706] text-white py-1 px-6 hover:bg-[#3980F5]/10 transition-colors">
+                    <?php esc_html_e( 'Start Now', 'itrade' ); ?>
+                </button>
+            </div>
+            <div class="flex items-center justify-center space-x-4 md:hidden">
+                <button href="https://itrade.money/#form"
+                    class="whitespace-nowrap w-full rounded-lg border border-[#3980F5] bg-[#010706] text-white py-1 px-6 hover:bg-[#3980F5]/10 transition-colors">
+                    <?php esc_html_e( 'Start Now', 'itrade' ); ?>
+                </button>
+            </div>
+            <div
+                class="ms-2 md:ms-4 flex rounded-lg border border-white/8 bg-[#0B0C16] bg-[linear-gradient(55deg,rgba(14,16,29,0)_40.49%,#121525_99.37%)] py-3.5 px-0.5">
+                <?php echo do_shortcode( '[gtranslate]' ); ?>
+            </div>
         </div>
     </div>
 </div>
 <!-- Form Section -->
-<div class="mx-auto mt-5 w-full md:max-w-6xl">
+<div class="container w-full mx-auto mt-5">
     <!-- Header Section -->
     <div class="items-center justify-start text-white md:flex">
         <!-- Go Back Section -->
         <a class="flex items-center no-underline" href="#">
             <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/img/chevron-left.png"
                 alt="back" class="!my-0 size-5 sm:mr-2">
-            <span class="text-white no-underline hover:text-white/75 transition-colors">
+            <span class="text-white no-underline transition-colors hover:text-white/75">
                 <?php esc_html_e( 'Go Back', 'itrade' ); ?>
             </span>
         </a>
@@ -98,7 +104,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
         </div>
 
         <!-- Coupon Details -->
-        <div id="coupon_details" class="second-column text-white">
+        <div id="coupon_details" class="text-white second-column">
             <div
                 class="mb-2 p-3 flex w-full flex-col flex-nowrap lg:mb-4 rounded-xl border border-[#333546] bg-[linear-gradient(55deg,rgba(14,16,29,0)_40.49%,#121525_99.37%)] bg-[#0B0C16]">
                 <h3 class="text-white">
@@ -109,7 +115,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                 </p>
                 <div class="flex-1">
                     <!-- Coupon Code Input -->
-                    <div id="coupon_div" class="w-full flex flex-col items-center space-y-2">
+                    <div id="coupon_div" class="flex flex-col items-center w-full space-y-2">
                         <input type="text" id="custom_coupon_code" name="coupon_code" placeholder="Coupon Code"
                             class="w-full rounded-lg border border-[#333546] bg-[#141629] text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#04C7B5] placeholder-gray-400" />
                         <button type="button" id="apply_coupon_button"
@@ -133,8 +139,6 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                     <?php do_action( 'woocommerce_checkout_order_review' ); ?>
                 </div>
 
-                <?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
-
             </div>
 
             <!-- Payment Gateways -->
@@ -147,10 +151,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                 <?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 
                 <div id="order_review" class="woocommerce-checkout-review-order">
-                    <?php do_action( 'woocommerce_checkout_order_review' ); ?>
+                    <?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
                 </div>
-
-                <?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
 
             </div>
         </div>
@@ -163,9 +165,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 <!-- Footer Section -->
 <div class="mt-5 hidden md:flex items-center justify-center w-full bg-[rgba(0,9,18,0.85)] backdrop-blur-[12.5px] p-3">
-    <div class="flex max-w-sm items-center justify-between text-white md:w-full md:max-w-6xl p-3">
-        <div class="flex items-start justify-center space-y-4 flex-col">
-            <a href="<?php echo esc_url( site_url( '/' ) ); ?>" class="flex items-center space-x-4 !no-underline">
+    <div class="container flex items-center justify-between p-3 text-white md:w-full">
+        <div class="flex flex-col items-start justify-center space-y-4">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center space-x-4 !no-underline">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="logo"
                     class="!my-0 size-10">
                 <span class="text-white !no-underline text-2xl font-bold">
@@ -173,50 +175,50 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                 </span>
             </a>
             <p class="!text-[#787878]">
-                <?php esc_html_e( '© 2025 ITrade, все права защищены', 'itrade' ); ?>
+                <?php esc_html_e( '© 2025 ITrade, All Rights Reserved', 'itrade' ); ?>
             </p>
         </div>
-        <div class="flex flex-col items-center justify-center space-y-4 space-y-4">
+        <div class="flex flex-col items-center justify-center space-y-4">
             <!-- Menu Items -->
             <div class="flex items-center justify-center space-x-4">
-                <a href="#"
+                <a href="https://itrade.money/#how-it-works"
                     class="whitespace-nowrap !no-underline px-4 py-1 !m-0 !text-white hover:bg-white/10 rounded-lg transition-colors">
-                    <?php esc_html_e( 'Как это работает', 'itrade' ); ?>
+                    <?php esc_html_e( 'How it works', 'itrade' ); ?>
                 </a>
-                <a href="#"
+                <a href="https://itrade.money/#terms"
                     class="whitespace-nowrap !no-underline px-4 py-1 !m-0 !text-white hover:bg-white/10 rounded-lg transition-colors">
-                    <?php esc_html_e( 'Условия', 'itrade' ); ?>
+                    <?php esc_html_e( 'Terms', 'itrade' ); ?>
                 </a>
-                <a href="#"
+                <a href="https://itrade.money/#support"
                     class="whitespace-nowrap !no-underline px-4 py-1 !m-0 !text-white hover:bg-white/10 rounded-lg transition-colors">
-                    <?php esc_html_e( 'Поддержка', 'itrade' ); ?>
+                    <?php esc_html_e( 'Support', 'itrade' ); ?>
                 </a>
             </div>
             <div class="flex items-center justify-center space-x-4">
-                <a href="#"
+                <a href="https://itrade.money/privacy"
                     class="whitespace-nowrap !no-underline !text-[#787878] px-4 py-1 !m-0 hover:bg-white/10 rounded-lg transition-colors">
-                    <?php esc_html_e( 'Политика конфиденциальности', 'itrade' ); ?>
+                    <?php esc_html_e( 'Privacy policy', 'itrade' ); ?>
                 </a>
-                <a href="#"
+                <a href="https://itrade.money/terms"
                     class="whitespace-nowrap !no-underline !text-[#787878] px-4 py-1 !m-0 hover:bg-white/10 rounded-lg transition-colors">
-                    <?php esc_html_e( 'Условия использования', 'itrade' ); ?>
+                    <?php esc_html_e( 'Terms of use', 'itrade' ); ?>
                 </a>
             </div>
 
         </div>
         <div class="flex flex-col items-center justify-center space-y-4">
             <!-- Menu Items -->
-            <a href="#"
+            <a href="mailto:support@itrade.money"
                 class="whitespace-nowrap !no-underline px-4 py-1 !m-0 !text-white hover:!text-white/50 transition-colors">
-                <?php esc_html_e( 'itradesupport@gmail.com', 'itrade' ); ?>
+                <?php esc_html_e( 'support@itrade.money', 'itrade' ); ?>
             </a>
 
             <div class="flex items-center justify-center space-x-4">
-                <a href="#" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
+                <a href="https://wa.me/message/FD7NPCRPT3LHK1" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/whatsapp.png" alt="whatsapp"
                         class="!my-0 size-10">
                 </a>
-                <a href="#" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
+                <a href="https://t.me/itrademoney_support" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/black.png" alt="telegram"
                         class="!my-0 size-10">
                 </a>
@@ -226,10 +228,11 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 </div>
 
-<div class="mt-5 flex md:hidden items-center justify-center w-full bg-[rgba(0,9,18,0.85)] backdrop-blur-[12.5px]">
-    <div class="flex flex-col items-center justify-between text-white w-full p-3 space-y-4">
+<div
+    class="mt-5 flex md:hidden items-center justify-center w-full bg-[rgba(0,9,18,0.85)] backdrop-blur-[12.5px] container">
+    <div class="flex flex-col items-center justify-between w-full p-3 space-y-4 text-white">
         <div class="flex items-start justify-between w-full space-x-4">
-            <a href="<?php echo esc_url( site_url( '/' ) ); ?>" class="flex items-center space-x-4 !no-underline">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center space-x-4 !no-underline">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="logo"
                     class="!my-0 size-10">
                 <span class="text-white !no-underline text-2xl font-bold">
@@ -237,44 +240,49 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                 </span>
             </a>
             <div class="flex items-center justify-center space-x-4">
-                <a href="#" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
+                <a href="https://wa.me/message/FD7NPCRPT3LHK1" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/whatsapp.png" alt="whatsapp"
                         class="!my-0 size-10">
                 </a>
-                <a href="#" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
+                <a href="https://t.me/itrademoney_support" class="px-4 py-1 !m-0 hover:drop-shadow-white-glow">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/black.png" alt="telegram"
                         class="!my-0 size-10">
                 </a>
             </div>
         </div>
         <div class="flex items-center justify-center">
-            <a href="mailto:itradesupport@gmail.com"
+            <a href="mailto:support@itrade.money"
                 class="whitespace-nowrap !no-underline !m-0 !text-white hover:!text-white/50 transition-colors">
-                <?php esc_html_e( 'itradesupport@gmail.com', 'itrade' ); ?>
+                <?php esc_html_e( 'support@itrade.money', 'itrade' ); ?>
             </a>
         </div>
         <div class="flex items-center justify-around w-full space-x-4">
-            <a href="#" class="whitespace-nowrap !no-underline !m-0 !text-white hover:bg-white/10 transition-colors">
-                <?php esc_html_e( 'Как это работает', 'itrade' ); ?>
+            <a href="https://itrade.money/#how-it-works"
+                class="whitespace-nowrap !no-underline !m-0 !text-white hover:bg-white/10 transition-colors">
+                <?php esc_html_e( 'How it works', 'itrade' ); ?>
             </a>
-            <a href="#" class="whitespace-nowrap !no-underline !m-0 !text-white hover:bg-white/10 transition-colors">
-                <?php esc_html_e( 'Условия', 'itrade' ); ?>
+            <a href="https://itrade.money/#terms"
+                class="whitespace-nowrap !no-underline !m-0 !text-white hover:bg-white/10 transition-colors">
+                <?php esc_html_e( 'Terms', 'itrade' ); ?>
             </a>
-            <a href="#" class="whitespace-nowrap !no-underline !m-0 !text-white hover:bg-white/10 transition-colors">
-                <?php esc_html_e( 'Поддержка', 'itrade' ); ?>
+            <a href="https://itrade.money/#support"
+                class="whitespace-nowrap !no-underline !m-0 !text-white hover:bg-white/10 transition-colors">
+                <?php esc_html_e( 'Support', 'itrade' ); ?>
             </a>
         </div>
         <div class="flex items-center justify-center">
             <p class="!text-[#787878]">
-                <?php esc_html_e( '© 2025 ITrade, все права защищены', 'itrade' ); ?>
+                <?php esc_html_e( '© 2025 ITrade, All Rights Reserved', 'itrade' ); ?>
             </p>
         </div>
         <div class="flex items-center justify-around w-full space-x-4">
-            <a href="#" class="!no-underline !text-white !m-0 hover:bg-white/10 transition-colors">
-                <?php esc_html_e( 'Политика конфиденциальности', 'itrade' ); ?>
+            <a href="https://itrade.money/privacy"
+                class="!no-underline !text-white !m-0 hover:bg-white/10 transition-colors">
+                <?php esc_html_e( 'Privacy Policy', 'itrade' ); ?>
             </a>
-            <a href="#" class="!no-underline !text-white !m-0 hover:bg-white/10 transition-colors">
-                <?php esc_html_e( 'Условия использования', 'itrade' ); ?>
+            <a href="https://itrade.money/terms"
+                class="!no-underline !text-white !m-0 hover:bg-white/10 transition-colors">
+                <?php esc_html_e( 'Terms of use', 'itrade' ); ?>
             </a>
         </div>
     </div>
