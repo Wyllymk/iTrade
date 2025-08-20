@@ -327,6 +327,11 @@ form.checkout.woocommerce-checkout .second-column {
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
+.woocommerce-checkout #place_order:hover {
+	/* Glow */
+	transform: translateY(-2px);
+	background: linear-gradient(to right, #3980f5 #04c7b5);
+}
 /* CONFIRMO */
 .wc_payment_method.payment_method_confirmo {
 	display: flex;
